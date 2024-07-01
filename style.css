@@ -1,8 +1,19 @@
+body {
+    background-image: url('bk.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
 .container {
     max-width: 400px;
     margin: auto;
     padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);  
+    border-radius: 10px;
 }
+
 
 form {
     display: flex;
