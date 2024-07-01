@@ -10,6 +10,7 @@ function submitForm(event) {
 
     // Anfrage einrichten
     xhr.open('POST', 'https://yb8ev7e9hh.execute-api.eu-central-1.amazonaws.com/prod/login', true);
+    //xhr.open('POST', 'https://yb8ev7e9hh.execute-api.eu-central-1.amazonaws.com/prod1/login', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
     // Antwort-Handler einrichten
@@ -21,7 +22,7 @@ function submitForm(event) {
                 if (response.message === 'Login successful') {
                     alert('Login successful!');
                     // Temporär den Redirect entfernen oder ändern
-                    // window.location.href = 'home.html';  // Ändern Sie dies zu Ihrer gewünschten Seite
+                     window.location.href = 'willkommen.html';  // Ändern Sie dies zu Ihrer gewünschten Seite
                 } else {
                     alert('Login failed: ' + (response.message || 'Unknown error'));
                 }
