@@ -16,6 +16,20 @@ function submitForm() {
     const password = document.getElementById('password').value;
     const confirm_password = document.getElementById('confirm_password').value;
 
+
+     // Check if all required fields are filled
+     if (!vorname || !nachname || !email || !geburtsdatum || !strasse || !hausnummer || !plz || !stadt || !sicherheitsfrage || !sicherheitsantwort || !password || !confirm_password) {
+        alert('Please fill in all required fields.');
+        return;
+    }
+
+    // Check if password and confirm_password match
+    if (password !== confirm_password) {
+        alert('Passwords do not match.');
+        return;
+    }
+
+
     // Create request object
     const xhr = new XMLHttpRequest();
 
