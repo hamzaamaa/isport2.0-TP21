@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Willkommen!</h1>
+        <p>Sie haben sich erfolgreich eingeloggt.</p>
+
+        <!-- Formular zum Löschen des Kontos -->
+        <form id="delete-user-form">
+            <input type="email" id="user-email" placeholder="Geben Sie Ihre E-Mail-Adresse ein" required>
+            <button type="submit">Konto löschen</button>
+        </form>
+    </div>
+
+    <script>
+    document.getElementById('delete-user-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById('user-email').value;
+        
+        fetch('https://f53dppdkbh.execute-api.eu-central-1.amazonaws.com/prod/delete-user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: email })
+        })
+        .then(response => response.json())
+        .then(data => alert(data.body))
+        .catch(error => console.error('Error:', error));
+    });
+    </script>
+</body>
+</html>
